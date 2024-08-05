@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <title>Assignment 3 test</title>
+</head>
+<body>
+    <h1>Hong Kong International Airport Flight Infomation</h1>
+
+    <p>Data:</p>
+    <div class="switch_departure_arrival">
+        <p class="switch_tag">Departure</p>
+
+        <label class="switch">
+            <input type="checkbox" id="switch_button" value="arrival">
+            <div class="slider round"></div>
+          </label>
+
+        <p class="switch_tag">Arrival</p>
+
+    </div>
+
+    <p>information</p>
+    <button id="early_flight_button">Load Early Flights</button>
+
+    <div class="flights_table" id="flights_table"></div>
+    
+    <button id="more_flight_button">Load More Flights</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
