@@ -116,8 +116,13 @@ fetch("iata.json").then( async response => {
 
 //add the eventListener for the "departure-arrival" switch button
 let switchButton = document.getElementById("switch_button");
+let early_flight_button_pressed = false;
+let more_flight_button_pressed = false;
 switchButton.addEventListener("change", SwitchDepAri);
 function SwitchDepAri(){
+
+    early_flight_button_pressed = false;
+    more_flight_button_pressed = false;
 
     if(switchButton.checked){
 
@@ -297,6 +302,7 @@ let early_flight_button = document.getElementById("early_flight_button");
 early_flight_button.addEventListener("click", Laod_early_flight);
 function Laod_early_flight(){
 
+    if( early_flight_button_pressed ){ return; }
     var flights_talbe = document.getElementById("flights_table");
     output = ""
     for( let i = 0; i < first_index ; i++ ){
@@ -334,6 +340,7 @@ function Laod_early_flight(){
 
     }
     flights_talbe.innerHTML = output + flights_talbe.innerHTML;
+    early_flight_button_pressed = true;
 
 }
 
@@ -341,7 +348,8 @@ function Laod_early_flight(){
 let more_flight_button = document.getElementById("more_flight_button");
 more_flight_button.addEventListener("click", Laod_more_flight);
 function Laod_more_flight(){
-
+    if(more_flight_button_pressed){ return; }
+    
     if( first_index+10 > flight_information.length ){ return }
 
     var flights_talbe = document.getElementById("flights_table");
@@ -381,6 +389,7 @@ function Laod_more_flight(){
 
     }
     flights_talbe.innerHTML += output;
+    more_flight_button_pressed = true;
     
 }
 
